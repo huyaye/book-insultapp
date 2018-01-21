@@ -13,6 +13,16 @@
     	<maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     
+    <repositories>
+		<repository>
+			<!-- id나 name은 아무거나 설정하시면됩니다. -->
+			<id>localrepository</id>
+			<name>catalog</name>
+			<!--	 정확히 말하면 url을 등록하는겁니다. ${basedir}는 현재경로 -->
+			<url>file://${basedir}/mylib</url>
+		</repository>
+	</repositories>
+
     <dependencies>
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -25,6 +35,12 @@
 			<artifactId>javaee-api</artifactId>
 			<version>7.0</version>
 			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>testlib</groupId>
+			<artifactId>testlib</artifactId>
+			<version>1.0</version>
 		</dependency>
 	</dependencies>
 
