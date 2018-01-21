@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import testlib.Test;
+
 public class InsultGenerator {
 	public String generateInsult() {
 		String vowels = "AEIOU";
@@ -26,7 +28,9 @@ public class InsultGenerator {
 					if (vowels.indexOf(rs.getString("first").charAt(0)) == -1) {
 						article = "a";
 					}
-					theInsult = String.format("YOU art %s %s %s %s!", article, rs.getString("first"),
+					Test test = new Test();
+					String name = test.getTest();
+					theInsult = String.format("%s You art %s %s %s %s!", name, article, rs.getString("first"),
 							rs.getString("second"), rs.getString("noun"));
 				}
 				rs.close();
